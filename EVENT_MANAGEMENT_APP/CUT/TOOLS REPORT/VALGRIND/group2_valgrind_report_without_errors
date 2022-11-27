@@ -1,0 +1,9 @@
+==1398810== HEAP SUMMARY:
+==1398810==     in use at exit: 0 bytes in 0 blocks
+==1398810==   total heap usage: 14 allocs, 14 frees, 23,064 bytes allocated
+==1398810==
+==1398810== All heap blocks were freed -- no leaks are possible
+==1398810==
+==1398810== Use --track-origins=yes to see where uninitialised values come from
+==1398810== For lists of detected and suppressed errors, rerun with: -s
+==1398810== ERROR SUMMARY: 2 errors from 1 contexts (suppressed: 0 from 0)
