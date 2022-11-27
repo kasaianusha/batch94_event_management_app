@@ -1,0 +1,57 @@
+Splint 3.1.2 --- 21 Feb 2021
+
+eve_menu.c: (in function customer_corner)
+eve_menu.c:26:8: Variable choice used before definition
+  An rvalue is used that may not be initialized to a value on some execution
+  path. (Use -usedef to inhibit warning)
+eve_menu.c:28:3: Return value (type int) ignored: system("read a")
+  Result returned by function call is not used. If this is intended, can cast
+  result to (void) to eliminate message. (Use -retvalint to inhibit warning)
+eve_menu.c:29:3: Return value (type int) ignored: system("clear")
+eve_menu.c:32:3: Return value (type int) ignored: scanf("%d", &choice)
+eve_menu.c:35:11: Return value (type int) ignored: add_cust_details()
+eve_menu.c:37:11: Return value (type int) ignored: edit_cust_details()
+eve_menu.c:39:11: Return value (type int) ignored: view_cust_details()
+eve_menu.c:41:11: Return value (type int) ignored: del_cust_details()
+eve_menu.c: (in function eventmanager_corner)
+eve_menu.c:71:8: Variable choice used before definition
+eve_menu.c:73:3: Return value (type int) ignored: system("read a")
+eve_menu.c:74:3: Return value (type int) ignored: system("clear")
+eve_menu.c:77:3: Return value (type int) ignored: scanf("%d", &choice)
+eve_menu.c:80:11: Return value (type int) ignored: add_EM_details()
+eve_menu.c:82:11: Return value (type int) ignored: edit_EM_details()
+eve_menu.c:84:11: Return value (type int) ignored: view_EM_details()
+eve_menu.c:87:11: Unreachable code: break
+  This code will never be reached on any possible execution. (Use -unreachable
+  to inhibit warning)
+eve_menu.c: (in function admin)
+eve_menu.c:98:8: Test expression for while not boolean, type int: 1
+  Test expression type is not boolean or int. (Use -predboolint to inhibit
+  warning)
+eve_menu.c:102:3: Return value (type int) ignored: system("read a")
+eve_menu.c:103:3: Return value (type int) ignored: system("clear")
+eve_menu.c:105:3: Return value (type int) ignored: scanf("%s", admi...
+eve_menu.c:107:3: Return value (type int) ignored: scanf("%s", pswd)
+eve_menu.c:111:4: Return value (type int) ignored: system("clear")
+eve_menu.c:117:5: Return value (type int) ignored: scanf("%d", &ch1)
+eve_menu.c:120:14: Return value (type int) ignored: customer_corner()
+eve_menu.c:122:14: Return value (type int) ignored: eventmanager_cor...
+eve_menu.c:124:14: Return value (type int) ignored: eventoo_corner()
+eve_menu.c:140:2: Path with no return in function declared to return int
+  There is a path through a function declared to return a value on which there
+  is no return statement. This means the execution may fall through without
+  returning a meaningful result to the caller. (Use -noret to inhibit warning)
+eve_menu.c: (in function eventoo_corner)
+eve_menu.c:162:8: Variable choice used before definition
+eve_menu.c:164:3: Return value (type int) ignored: system("read a")
+eve_menu.c:165:3: Return value (type int) ignored: system("clear")
+eve_menu.c:168:3: Return value (type int) ignored: scanf("%d", &choice)
+eve_menu.c:171:11: Return value (type int) ignored: events_completed...
+eve_menu.c:173:11: Return value (type int) ignored: events_with_budg...
+eve_menu.c:175:11: Return value (type int) ignored: successfull_even...
+eve_menu.c:177:11: Return value (type int) ignored: pending_events_l...
+eve_menu.c:179:11: Return value (type int) ignored: valued_customers()
+eve_menu.c:181:11: Return value (type int) ignored: del_EM_details()
+eve_menu.c:184:11: Unreachable code: break
+
+Finished checking --- 38 code warnings
