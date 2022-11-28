@@ -313,7 +313,7 @@ printf("\nAadharNumber       Customer_Name       Start-Date      No.of.Days     
 	for(ptr=start;(ptr);ptr=ptr->next)
 	{
 	      
-		printf("\n%3lld %15s %15s %15s %15lf %15s %15ld\n",ptr->Aadharno,ptr->Cust_Name,ptr->start_date,ptr->ndays,ptr->budget,ptr->avail_event_opt,ptr->Phoneno);
+		printf("\n%3lld %15s %9s %15s %15lf %15s %15ld\n",ptr->Aadharno,ptr->Cust_Name,ptr->start_date,ptr->ndays,ptr->budget,ptr->avail_event_opt,ptr->Phoneno);
 	}
 	return EXIT_SUCCESS;
 }										//view customer details function ends here
@@ -548,6 +548,9 @@ int edit_EM_details()
 			printf("\nEMCODE Id %d not found\n",EMCODE);
 			return EXIT_FAILURE;
 		}
+		int confirmation_status;
+		printf("Enter Completion Status");
+		scanf("%d",&confirmation_status);
 		printf("Enter new name\n");
 		scanf("%s",ptr1->EM_Name);
 		printf("Enter New Phone Number:");
@@ -689,8 +692,65 @@ int del_EM_details()
 
 int successfull_event_managers()
 {											//editing eventoo database starts here
-	
 
+        /*int completion_status;
+	if(!start2)
+	{
+		printf("Empty List");
+		return EXIT_FAILURE;
+	}
+	while(1)
+	{	//printf("\nEnter the ID of EVENT MANAGER:");
+		//scanf("%d",&technician_id);
+		printf("\nID           EVENT TYPE         EVENT COST          EVENT STATUS\n");
+		for(ptr2=start2;(ptr2);ptr2=ptr2->next2)
+		{
+			if(ptr2->completion_status==1)
+			{
+				printf(" %lld  %10s    %5lf    %5d\n",ptr2->Aadharno, ptr2->event_type, ptr2->cost_of_event, ptr2->completion_status);
+			}
+			else
+				printf("No event manager is successful.");
+			break;
+		}
+		break;
+
+	}
+	return EXIT_SUCCESS;*/
+	        int completion_status;
+		//printf("EVENT COMPLETION STATUS");
+		scanf("%d",&completion_status);
+		system("clear");
+		if(completion_status==1)
+		{
+		printf("\nSUCCESSFUL EVENT MANAGERS ARE:\n");
+printf("\nEMCODE  Event Manager Name      Event Type     Years_of_Experience    Expenses for the Event  Password   Phone number\n");
+	for(ptr1=start1;(ptr1);ptr1=ptr1->next1)
+	{
+		printf("\n%2d  %10s  %15s  %20d  %15lf  %15s %25ld\n",ptr1->EMCODE,ptr1->EM_Name,ptr1->event_type,ptr1->Years_of_experience,ptr1->cost_of_event,ptr1->password,ptr1->contact_number);
+	}
+	
+        return EXIT_SUCCESS;
+	
+                }
+		else{
+		printf("\n NONE OF THE EVENT MANAGER IS SUCCESSFULL\n");
+		
+	if(!start1)
+	{
+		printf("\nNone of the Event Managers Are Successful\n");
+		return EXIT_FAILURE;
+         }
+		}
+/*printf("\nEMCODE  Event Manager Name      Event Type     Years_of_Experience    Expenses for the Event  Password   Phone number\n");
+	for(ptr1=start1;(ptr1);ptr1=ptr1->next1)
+	{
+		printf("\n%2d  %10s  %15s  %20d  %15lf  %15s %25ld\n",ptr1->EMCODE,ptr1->EM_Name,ptr1->event_type,ptr1->Years_of_experience,ptr1->cost_of_event,ptr1->password,ptr1->contact_number);
+	}*/
+	
+        return EXIT_SUCCESS;
+	
+/*
 	if((new2=(eventoo *)calloc(1,sizeof(eventoo)))==NULL)
 	{
 		printf("\nMemory allocation failure\n");
@@ -698,19 +758,20 @@ int successfull_event_managers()
 	}
 	while(1)
 	{
-		printf("Enter Event Manager's Aadhar  Number:");
-		scanf("%lld",&new2->Aadharno);
-		if(validate_aadhar(new2->Aadharno))
+	if(!start1)
+		printf("Enter Event Manager's emcode:");
+		scanf("%lld",&new2->EMCODE);
+		if(validate_aadhar(new2->EMCODE))
 		{
 			printf("\nEnter Valid AadharNumber\n");
 			continue;
 		}
 		if(start2)
 		{
-			for(ptr2=start2;(ptr2)&&ptr2->Aadharno!=new2->Aadharno;ptr2->next2);
+			for(ptr2=start2;(ptr2)&&ptr2->EMCODE!=new2->EMCODE;ptr2->next2);
 			if((ptr2)&&ptr2->Aadharno==new2->Aadharno)
 			{
-				printf("\nAadharNumber %lld already exists\n",new2->Aadharno);
+				printf("\nAadharNumber %lld already exists\n",new2->EMCODE);
 				continue;
 			}
 			else
@@ -721,7 +782,7 @@ int successfull_event_managers()
 	return EXIT_SUCCESS;
 
 
-
+*/
 }											//editing event database ends here
 
 /***********************************************************************************************************************************
@@ -737,7 +798,53 @@ int events_completed_report()
 {			
 
 	//viewing eventoo database starts here
-        if(!start1)
+	
+	        int completion_status;
+		//printf("EVENT COMPLETION STATUS");
+		scanf("%d",&completion_status);
+		system("clear");
+		if(completion_status==1)
+		{
+		//printf("\nEVENT SUCCEESFULLY COMPLETED  BY EVENT MANAGER\n");
+printf("\nEMCODE  Event Manager Name      Event Type     Years_of_Experience    Expenses for the Event  Password   Phone number\n");
+	for(ptr1=start1;(ptr1);ptr1=ptr1->next1)
+	{
+		printf("\n%2d  %10s  %15s  %20d  %15lf  %15s %25ld\n",ptr1->EMCODE,ptr1->EM_Name,ptr1->event_type,ptr1->Years_of_experience,ptr1->cost_of_event,ptr1->password,ptr1->contact_number);
+	}
+	
+        return EXIT_SUCCESS;
+	
+                }
+		else{
+		printf("\n NO COMPLETED EVENTS\n");
+		}	
+	if(!start1)
+	{
+		printf("\nNO COMPLETED EVENTS\n");
+		return EXIT_FAILURE;
+         }
+		
+}
+	/*int completion_status;
+	scanf("%d",&completion_status);
+	 if(!start2)
+	{
+		printf("\n.....NO COMPLETED EVENTS.....\n");
+		return EXIT_FAILURE;
+	}
+	printf("\n ID   Customer Aadhar   EVENT_Type   Cost_of_Service    Event_Status\n");
+	//int completion_status;
+	//printf("ENter completion status of EVent\n");
+	scanf("%d",&completion_status);
+	if(completion_status==1)
+	{
+	for(ptr2=start2;(ptr2);ptr2=ptr2->next2) 
+	{
+		printf("\n%d %3lld %3s  %5lf  %3d\n",ptr2->EMCODE,ptr2->Aadharno,ptr2->event_type,ptr2->cost_of_event,ptr2->completion_status);
+        }
+	}
+	return EXIT_SUCCESS;  
+        /*if(!start2)
        {
 	       printf("\n NO EVENTS TO SHOW \n");
 	       return EXIT_FAILURE;
@@ -746,17 +853,26 @@ int events_completed_report()
 		printf("-----------------------------------------------------------------------------------\n");
 	printf("   CUSTOMERNAME       EMCODE     EVENT NAME\n");
 		printf("-----------------------------------------------------------------------------------\n");
-	for(ptr1=start1;(ptr1);ptr1=ptr1->next1);
+           int completion_status;
+	   printf("enter Completion status of event\n");
+	   scanf("%d",&completion_status);
+           if(completion_status==1)
+		{
+			
+	for(ptr2=start2;(ptr2);ptr2=ptr2->next2);
 	{
-		if((ptr1->EMCODE)!=0){
-			printf("%s  \t%d\t  %s\n",ptr1->EM_Name,ptr1->EMCODE,ptr1->event_type);
+		if((ptr2->EMCODE)!=0){
+			printf("%s  \t%d\t  %s\n",ptr2->EName,ptr2->EMCODE,ptr2->event_type);
 		}
-	
+	}
+
 }
+
+
 	return EXIT_SUCCESS;
 
-
-}											//viewing eventoo database ends here
+*/
+											//viewing eventoo database ends here
 
 /***********************************************************************************************************************************
  *
@@ -770,20 +886,20 @@ int events_completed_report()
 int events_with_budget_overrun()
 {										// records in eventoo database starts here
 	
-		if(!start1)
+		if(!start2)
 		{
-			printf("\n NO EVENTS TO SHOW \n");
+			printf("\n NO EVENTS WITH BUDGET OVERRUN\n");
 		}
 		return EXIT_FAILURE;
 		
 		
 			printf("--------------------------------------EVENTS WITH BUDGET OVERRUN-----------------------\n");
 			printf("CUSTOMER              EVENT WITH BUDGET  OVERRUN\n");
-			for(ptr1=start1;(ptr1);ptr1=ptr1->next1)
+			for(ptr2=start2;(ptr2);ptr2=ptr2->next2)
 			{
-			      if((ptr1->budget) < (ptr1->actual_expenses))
+			      if((ptr2->budget) < (ptr2->actual_expenses))
 			      {
-                                         printf("\t%s\t    \t%2d\t       \t%3lf\t",ptr1->cust,ptr1->event_type);
+                                         printf("\t%s\t    \t%2d\t       \t%3lf\t",ptr2->cust,ptr2->event_type);
 			      }
 
 			}
@@ -795,8 +911,33 @@ int events_with_budget_overrun()
 int pending_events_list()
 
 {
-	if(!start)
+	//if(!start2)
+	        int completion_status;
+		//printf("EVENT COMPLETION STATUS");
+		scanf("%d",&completion_status);
+		system("clear");
+		if(completion_status==0)
+		{
+		//printf("\nPENDING  EVENTS ARE:\n");
+printf("\nEMCODE  Event Manager Name      Event Type     Years_of_Experience    Expenses for the Event  Password   Phone number\n");
+	for(ptr1=start1;(ptr1);ptr1=ptr1->next1)
 	{
+		printf("\n%2d  %10s  %15s  %20d  %15lf  %15s %25ld\n",ptr1->EMCODE,ptr1->EM_Name,ptr1->event_type,ptr1->Years_of_experience,ptr1->cost_of_event,ptr1->password,ptr1->contact_number);
+	}
+	
+        return EXIT_SUCCESS;
+	
+                }
+		else{
+		printf("\n NO PENDING EVENTS\n");
+		}	
+	if(!start1)
+	{
+		printf("\nNO COMPLETED EVENTS\n");
+		return EXIT_FAILURE;
+         }
+		
+	/*{
 		printf("\n ...................NO PENDING EVENTS.....................\n");
 	}
 	return EXIT_SUCCESS;
@@ -804,20 +945,43 @@ int pending_events_list()
 		printf("-----------------------------------------------------------------------------------\n");
 	printf("CUSTOMER     EVENT PENDING     \n");
 		printf("-----------------------------------------------------------------------------------\n");
-	for(ptr=start;(ptr);ptr=ptr->next)
+	for(ptr2=start2;(ptr2);ptr2=ptr2->next2)
 	{
-		if((strlen(ptr->avail_event_opt))==0)
+		if((strlen(ptr2->event_type))==0)
 		{
-			printf("\t%s\t\t%s\t\n",ptr->Cust_Name,ptr->avail_event_opt);
+			printf("\t%s\t\t%s\t\n",ptr2->cust,ptr2->event_type);
 		}
 	}
 	return EXIT_SUCCESS;
-
+*/
 }
 int valued_customers()
 {
-/*	
-if(!start2)
+	
+	        int completion_status;
+		//printf("EVENT COMPLETION STATUS");
+		scanf("%d",&completion_status);
+		system("clear");
+		if(completion_status==1)
+		{
+	/*if(!start)
+	{
+		printf("\nNo records found\n");
+		return EXIT_FAILURE;
+	}*/
+printf("\nAadharNumber       Customer_Name       Start-Date      No.of.Days      Budget      Event Type      Phone Number   \n");
+	for(ptr=start;(ptr);ptr=ptr->next)
+	{
+	      
+		printf("\n%3lld %15s %15s %15s %15lf %15s %15ld\n",ptr->Aadharno,ptr->Cust_Name,ptr->start_date,ptr->ndays,ptr->budget,ptr->avail_event_opt,ptr->Phoneno);
+	}
+		}
+		else
+		{
+			printf("THERE IS NO VALUED CUSTOMERS\n");
+		}	
+	return EXIT_SUCCESS;
+/*if(!start2)
 	{
 		printf("\nEmpty list\n");
 		return EXIT_FAILURE;
@@ -847,6 +1011,5 @@ if(!start2)
 	printf("The event id  is %d and event name is  %s \n",val_id);
 	printf("Total students registered %d\n",val_cust);
 	return EXIT_SUCCESS;
-
 */
 }

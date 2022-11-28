@@ -21,7 +21,6 @@ int main()
 	eventmanager_file_to_list();
 	eventoo_file_to_list();
 	int choice=0;
-	//int (*option[3])()={customer_corner, eventmanager_corner, admin};
 	while(choice!=4)
 	{
 

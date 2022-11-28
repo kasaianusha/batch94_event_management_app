@@ -84,7 +84,7 @@ int eventmanager_corner()
 			case 3:view_EM_details();
 			       break;
 			case 4:return EXIT_SUCCESS;
-			       break;
+			       //break;
 			default:printf("\nInvalid Choice\n");
 				continue;
 		}
@@ -101,6 +101,7 @@ int admin()
 		char pswd[20];
 		system("read a");
 		system("clear");
+	 
 		printf("Enter admin_id:");
 		scanf("%s",admin_id);
 		printf("Enter password:");
@@ -163,6 +164,17 @@ int eventoo_corner()
 	{
 		system("read a");
 		system("clear");
+		//int completion_status;
+		//printf("Enter Completion Status of Event");
+		//scanf("%d",&completion_status);
+		//if(completion_status==1)
+		//{
+			//printf("Event Completed Successfully\n");
+		//}
+		//else
+		//{
+			//printf("Sorry ..try again\n");
+		//}
 		printf("\n1.Events Completed Reports\n2.Events with Budget Overrun\n3.Successful Event Managers\n4.Pending Events List\n5.Valued Customers\n6.Delete Event Manager Records\n7.Go Back\n");
 		printf("Enter your Choice:");
 		scanf("%d",&choice);
@@ -181,7 +193,7 @@ int eventoo_corner()
 			case 6:del_EM_details();
 			       break;
                  	case 7:return EXIT_SUCCESS;
-			       break;
+			       //break;
 			default:printf("\nInvalid Choice\n");
 				continue;
 		}

@@ -94,7 +94,7 @@ int customer_file_to_list()		//customer file to list function starts here...
 	cust_temp c1;
 	if((pc=fopen("../data/customer","rb"))==NULL)
 	{
-		printf("\n File is not found\n");
+		//printf("\n File is not found\n");
 		return EXIT_FAILURE;
 	}
 	fread(&c1,sizeof(c1),1,pc);
@@ -128,8 +128,8 @@ int customer_file_to_list()		//customer file to list function starts here...
 		fread(&c1,sizeof(c1),1,pc);
 	}
 	fclose(pc);
-	system("read a");
-	system("clear");
+	//system("read a");
+	//system("clear");
 	return EXIT_SUCCESS;
 }
 
@@ -151,7 +151,7 @@ int customer_list_to_file() 		//customer list to file function starts here...
 	if(!start)
 	{
 
-		printf("\n The list is Empty.\n");
+		//printf("\n The list is Empty.\n");
 		return EXIT_FAILURE;
 	}
 	FILE *pc1;
@@ -178,6 +178,7 @@ int customer_list_to_file() 		//customer list to file function starts here...
 	}
 	free(prev);*/
 	fclose(pc1);
+	
 	return EXIT_SUCCESS;
 }
 
@@ -199,7 +200,7 @@ int eventmanager_file_to_list()		//eventmanager file to list function start here
 	EM_temp e1;
 	if((pt=fopen("../data/eventmanager","rb"))==NULL)
 	{
-		printf("\n File is not found\n");
+		//printf("\n File is not found\n");
 		return EXIT_FAILURE;
 	}
 	fread(&e1,sizeof(e1),1,pt);
@@ -216,6 +217,7 @@ int eventmanager_file_to_list()		//eventmanager file to list function start here
 		new1->cost_of_event=e1.cost_of_event;
 		new1->contact_number=e1.contact_number;
 		new1->EMCODE=e1.EMCODE;
+                new1->confirmation_status=e1.confirmation_status;
 		strcpy(new1->event_type,e1.event_type);
 		strcpy(new1->password,e1.password);
 		if(!start1)
@@ -233,6 +235,8 @@ int eventmanager_file_to_list()		//eventmanager file to list function start here
 	}
 
 	fclose(pt);
+	//system("read a");
+	//system("clear");
 	return EXIT_SUCCESS;
 }
 
@@ -254,7 +258,7 @@ int eventmanager_list_to_file()		//eventmanager list to file function start here
 	if(!start1)
 	{
 
-		printf("\n The list is Empty.\n");
+		//printf("\n The list is Empty.\n");
 		return EXIT_FAILURE;
 	}
 	FILE *pt1;
@@ -271,12 +275,13 @@ int eventmanager_list_to_file()		//eventmanager list to file function start here
 		e2.cost_of_event=ptr1->cost_of_event;
 		e2.contact_number=ptr1->contact_number;
 		e2.EMCODE=ptr1->EMCODE;
+		e2.confirmation_status=ptr1->confirmation_status;
 		strcpy(e2.event_type,ptr1->event_type);
 		strcpy(e2.password,ptr1->password);
 		fwrite(&e2,sizeof(e2),1,pt1);
 	}
-	
-/*	for(ptr1=start1;(ptr1);prev1=ptr1,ptr1=ptr1->next1)
+	/*
+	for(ptr1=start1;(ptr1);prev1=ptr1,ptr1=ptr1->next1)
 	{
 		free(prev1);
 	}
@@ -304,7 +309,7 @@ int eventoo_file_to_list()		//eventoo file to list function starts here...
 	eventoo_temp o1;
 	if((ps=fopen("../data/eventoo","rb"))==NULL)
 	{
-		printf("\n File is not found\n");
+		//printf("\n File is not found\n");
 		return EXIT_FAILURE;
 	}
 	fread(&o1,sizeof(o1),1,ps);
@@ -321,6 +326,7 @@ int eventoo_file_to_list()		//eventoo file to list function starts here...
 		new2->EMCODE=o1.EMCODE;
 		strcpy(new2->start_date,o1.start_date);
 		strcpy(new2->ndays,o1.ndays);
+		new2->cost_of_event=o1.cost_of_event;
 		new2->budget=o1.budget;
 		new2->actual_expenses=o1.actual_expenses;
 		new2->completion_status=o1.completion_status;
@@ -340,6 +346,8 @@ int eventoo_file_to_list()		//eventoo file to list function starts here...
 	}
 
 	fclose(ps);
+	//system("read a");
+	//system("clear");
 	return EXIT_SUCCESS;
 }
 
@@ -361,7 +369,7 @@ int eventoo_list_to_file()		//eventoo list to file function start here...
 	if(!start2)
 	{
 
-		printf("\n The list is Empty.\n");
+		//printf("\n The list is Empty.\n");
 		return EXIT_FAILURE;
 	}
 	FILE *ps1;
@@ -379,12 +387,14 @@ int eventoo_list_to_file()		//eventoo list to file function start here...
 		o2.budget=ptr2->budget;
 		strcpy(o2.ndays,ptr2->ndays);
 		o2.EMCODE=ptr2->EMCODE;
+		o2.cost_of_event=ptr2->cost_of_event;
 		o2.actual_expenses=ptr2->actual_expenses;
 		o2.completion_status=ptr2->completion_status;
 		o2.remarks=ptr2->remarks;
 		fwrite(&o2,sizeof(o2),1,ps1);
 	}
-	/*for(ptr2=start2;(ptr2);prev2=ptr2,ptr2=ptr2->next2)
+	/*
+	for(ptr2=start2;(ptr2);prev2=ptr2,ptr2=ptr2->next2)
 	{
 		free(prev2);
 	}
