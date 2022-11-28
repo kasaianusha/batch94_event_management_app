@@ -83,7 +83,9 @@ typedef struct Eventoo
 	long long int Aadharno;
 	char event_type[MAX];
 	int EMCODE;
+	char EName[MAX];
 	int total_cust;
+	double cost_of_event;
 	double actual_expenses;
 	char cust[MAX];
 	int completion_status;
@@ -103,6 +105,8 @@ typedef struct Eventoo_temp
 	long long int Aadharno;
 	char event_type[MAX];
 	int EMCODE;
+        double cost_of_event;
+	char EName[MAX];
 	double actual_expenses;
 	int completion_status;
 	char cust[MAX];
@@ -123,6 +127,7 @@ int add_cust_details();
 int edit_cust_details();
 int del_cust_details();
 int view_cust_details();
+
 
 //Operations performed on Event Manager database
 int add_EM_details();
